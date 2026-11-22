@@ -24,7 +24,8 @@ jobs:
 
       - name: Extract Android project
         run: unzip ARYAN_CYBER_LAB_Android_Project.zip -d project
-
+      - name: Fix Java compatibility
+        run: sed -i 's/VERSION_1_8/VERSION_17/g' project/aryan_cyber_lab/app/build.gradle
       - name: Build APK
         working-directory: project/aryan_cyber_lab
         run: gradle assembleDebug
